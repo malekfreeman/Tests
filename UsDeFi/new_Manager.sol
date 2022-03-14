@@ -25,7 +25,7 @@ contract Manager is Ownable {
     using SafeMath for uint256;
 
     /**
-     * @dev outputs the external contracts.
+     * @dev Outputs the external contracts.
      */
     IWhitelist public whitelist;
     IBlacklist public blacklist;
@@ -36,7 +36,7 @@ contract Manager is Ownable {
     address public newSecurusProxyContract;
 
     /**
-     * @dev outputs the proxy trigger variables.
+     * @dev Outputs the proxy trigger variables.
      */
     bool public securusProxyTrigger; // is the proxy active or disabled
     uint256 public nextProxyTrigger; // After how many blocks you can trigger the Proxy again
@@ -44,13 +44,13 @@ contract Manager is Ownable {
     uint256 public proxyTriggerAmount; // can trigger Proxy when send Amount is bigger than this proxyTriggerAmount
 
     /**
-     * @dev outputs the proxy Timelock variables.
+     * @dev Outputs the proxy Timelock variables.
      */
     uint256 public proxyBlockTimelock; // the timelock in blocks you have to wait after updating the proxy to set a new proxy contract on active
     uint256 public lastProxyTimelockBlock; // the last timelock block after the new proxy contract can be activated
 
     /**
-     * @dev outputs the fee variables.
+     * @dev Outputs the fee variables.
      */
     uint256 public fee;
     uint256 public refLevel1Fee;
@@ -60,14 +60,14 @@ contract Manager is Ownable {
     address public basicRef;
 
     /**
-     * @dev outputs the `freeMintSupply` variable.
+     * @dev Outputs the `freeMintSupply` variable.
      */
     uint256 public freeMintSupply;
 
     /**
-     * @dev set the {fee} for transfers.
+     * @dev Sets the {fee} for transfers.
      *
-     * how many fees should be taken from a transaction.
+     * How many fees should be deducted from a transaction.
      *
      * Requirements:
      *
@@ -81,9 +81,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {fee} for ref level 1.
+     * @dev Sets the {fee} for ref level 1.
      *
-     * how many ref level 1 fees should be taken from a fee.
+     * How many ref level 1 fees should be deducted from a fee.
      *
      * Requirements:
      *
@@ -97,9 +97,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {fee} for ref level 2.
+     * @dev Sets the {fee} for ref level 2.
      *
-     * how many ref level 2 fees should be taken from a fee.
+     * how many ref level 2 fees should be deducted from a fee.
      *
      * Requirements:
      *
@@ -113,9 +113,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {fee} for ref level 3.
+     * @dev Sets the {fee} for ref level 3.
      *
-     * how many ref level 3 fees should be taken from a fee.
+     * how many ref level 3 fees should be deducted from a fee.
      *
      * Requirements:
      *
@@ -129,9 +129,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {fee} for ref level 3.
+     * @dev Sets the {fee} for ref level 3.
      *
-     * how many ref level 3 fees should be taken from a fee.
+     * how many ref level 3 fees should be deducted from a fee.
      *
      * Requirements:
      *
@@ -144,9 +144,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {feeReceiver} for transfers.
+     * @dev Sets the {feeReceiver} for transfers.
      *
-     * The `owner` decides which address the fee should get.
+     * The `owner` decides which address receives the fee.
      *
      * Requirements:
      *
@@ -157,7 +157,7 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {securusProxyTrigger} for transfers.
+     * @dev Sets the {securusProxyTrigger} for transfers.
      *
      * The `owner` decides whether the `securusProxyTrigger` is activated or deactivated.
      *
@@ -173,9 +173,9 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {proxyTriggerAmount} for the trigger.
+     * @dev Sets the {proxyTriggerAmount} for the trigger.
      *
-     * Says from which coin transfer size the trigger should be on.
+     * Says which coin transfer amount triggers the trigger.
      *
      * Requirements:
      *
@@ -189,7 +189,7 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {nextProxyTrigger} for contract trigger.
+     * @dev Sets the {nextProxyTrigger} for contract trigger.
      *
      * The owner decides after which blocktime the strategy may be executed again.
      *
@@ -202,7 +202,7 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {freeMintSupply} that the minter can create new coins.
+     * @dev Sets the {freeMintSupply} so that the minter can create new coins.
      *
      * The owner decides how many new coins may be created by the minter.
      *
@@ -215,7 +215,7 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev set the {proxyBlockTimelock} to define block waiting times.
+     * @dev Sets the {proxyBlockTimelock} to define block waiting times.
      *
      * This function ensures that functions cannot be executed immediately
      * but have to wait for a defined block time.
@@ -245,7 +245,7 @@ contract Manager is Ownable {
     /**
      * @dev Outputs the remaining time of the proxyBlockTimelock.
      *
-     * How many blocks still have to pass to activate the new Proxy.
+     * How many blocks have to pass to activate the new proxy.
      */
     function checkRemainingProxyBlockTimelock() public view returns (uint256) {
         uint256 remainingProxyBlockTimelock = lastProxyTimelockBlock.sub(
@@ -258,7 +258,7 @@ contract Manager is Ownable {
     /**
      * @dev Outputs the remaining time of the Proxy Trigger.
      *
-     * How many blocks still have to pass until the next proxy trigger possibility.
+     * How many blocks have to pass until the next proxy trigger can be triggered.
      */
     function checkRemainingProxyTriggerBlocktime()
         public
@@ -275,8 +275,8 @@ contract Manager is Ownable {
     /**
      * @dev Sets `external smart contracts`.
      *
-     * These functions serve to be flexible and to connect further automated systems
-     * that will require an update in the long term.
+     * These functions have the purpose to be flexible and to connect further automated systems
+     * which will require an update in the longer term.
      *
      * Requirements:
      *
@@ -322,7 +322,7 @@ contract Manager is Ownable {
      * the `securusProxyContract` and activates the `lastProxyTimelockBlock`.
      *
      * The new `securusProxyContract` is now shown to everyone
-     * and people can make necessary decisions from it.
+     * and people can make the necessary decisions if required.
      *
      * Emits an {Approval} event.
      *
@@ -340,7 +340,7 @@ contract Manager is Ownable {
     }
 
     /**
-     * @dev Activate new `external Securus proxy smart contract`
+     * @dev Activates new `external Securus proxy smart contract`
      *
      * After the `lastProxyTimelockBlock` time has expired
      * The owner can now activate his submitted `external Securus proxy smart contract`
