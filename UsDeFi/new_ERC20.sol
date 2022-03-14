@@ -3,7 +3,7 @@
  * @dev ERC20 contract
  *
  * @author - <AUREUM VICTORIA GROUP>
- * for the Securus Foundation
+ * for the Midgard Trust
  *
  * SPDX-License-Identifier: GNU GPLv2
  *
@@ -104,9 +104,9 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Sets {decimals} to a value other than the default one of 18.
      *
-     * WARNING: This function should only be called from the constructor.
-     * Most applications that interact with token contracts will not expect
-     * {decimals} to ever change and may work incorrectly if it does.
+     * WARNING: This function should only be called from the developer.
+     * Most applications which interact with token contracts will not expect
+     * {decimals} to ever change and may work incorrectly if changed.
      */
     function _setupDecimals(uint8 decimals_) internal {
         _decimals = decimals_;
@@ -197,7 +197,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Automatically increases the allowance granted to `spender` by the caller.
      *
-     * This is an alternative to {approve} that can be used as a mitigation for
+     * This is an alternative to {approve} which can be used as a mitigation for
      * problems described in {IERC20-approve}.
      *
      * Emits an {Approval} event indicating the updated allowance.
@@ -250,7 +250,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     }
 
     /**
-     * @dev set the whitelist - true or false.
+     * @dev Set the whitelist - true or false.
      *
      * Requirements:
      *
@@ -266,7 +266,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Moves tokens `amount` from `sender` to `recipient` and `feeReceiver`.
      *
-     * This is internal function is equivalent to {transfer}, and used also for automatic token fees.
+     * This internal function is equivalent to {transfer}, and used also for automatic token fees.
      *
      * Emits a {Transfer} event.
      *
@@ -369,7 +369,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
         }
     }
 
-    /** @dev Emits a {burn} event and set the BlackFund address to 0.
+    /** @dev Emits a {burn} event and sets the BlackFund address to 0.
      *
      * Requirements:
      *
@@ -392,7 +392,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
 
     /** @dev Moves tokens `amount` from `sender` to `recipient`.
      *
-     * Emits a Admin {Transfer} event on the amount of Black Funds.
+     * Emits an Admin {Transfer} event on the amount of Black Funds.
      *
      * Requirements:
      *
@@ -434,7 +434,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
 
     /**
      * Purpose:
-     * onlyMinter mint tokens on the _to address
+     * onlyMinter mints tokens on the _to address
      *
      * @param _amount - amount of newly issued tokens
      * @param _to - address for the new issued tokens
@@ -467,8 +467,8 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Sets `amount` as the allowance of `spender` over the `owner` tokens.
      *
-     * This internal function is equivalent to `approve`, and can be used to
-     * e.g. set automatic allowances for certain subsystems etc.
+     * This internal function is the equivalent to `approve`, and can be used to
+     * set automatic allowances for certain subsystems etc.
      *
      * Emits an {Approval} event.
      *
