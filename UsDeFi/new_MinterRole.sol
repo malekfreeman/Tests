@@ -46,7 +46,7 @@ contract MintRole is Ownable {
     }
 
     /**
-     * @dev add address to the Minter role.
+     * @dev Adds address to the Minter role.
      *
      * Requirements:
      *
@@ -57,7 +57,7 @@ contract MintRole is Ownable {
     }
 
     /**
-     * @dev remove address from the Minter role.
+     * @dev Removes address from the Minter role.
      *
      * Requirements:
      *
@@ -68,7 +68,7 @@ contract MintRole is Ownable {
     }
 
     /**
-     * @dev add address to the Minter role (internal).
+     * @dev Adds address to the Minter role (internally).
      *
      * Requirements:
      *
@@ -80,7 +80,7 @@ contract MintRole is Ownable {
     }
 
     /**
-     * @dev remove address from the Minter role (internal).
+     * @dev Removes address from the Minter role (internally).
      *
      * Requirements:
      *
