@@ -21,7 +21,7 @@ library Roles {
     }
 
     /**
-     * @dev Give an account access to this role.
+     * @dev Gives an account access to this role.
      */
     function add(Role storage role, address account) internal {
         require(!has(role, account), "Roles: account already has role");
@@ -29,7 +29,7 @@ library Roles {
     }
 
     /**
-     * @dev Remove an account's access to this role.
+     * @dev Removes an account's access to this role.
      */
     function remove(Role storage role, address account) internal {
         require(has(role, account), "Roles: account does not have role");
@@ -37,7 +37,7 @@ library Roles {
     }
 
     /**
-     * @dev Check if an account has this role.
+     * @dev Checks if an account has the role.
      * @return bool
      */
     function has(Role storage role, address account)
