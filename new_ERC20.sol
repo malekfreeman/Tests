@@ -39,7 +39,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
      *
      * To select a different value for {decimals}, use {_setupDecimals}.
      *
-     * All three of these values are immutable: they can only be set once during
+     * These three values are immutable: they can only be set once during
      * construction.
      */
     constructor(string memory name_, string memory symbol_) public {
@@ -73,7 +73,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
      * called.
      *
      * NOTE: This information is only used for _display_ purposes:
-     * it does not affect any of the arithmetic of the contract, including
+     * it does not affect any of the arithmetic in the contract, including
      * {IERC20-balanceOf} and {IERC20-transfer}.
      */
     function decimals() public view returns (uint256) {
@@ -102,11 +102,11 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     }
 
     /**
-     * @dev Sets {decimals} to a value other than the default one of 18.
+     * @dev Sets {decimals} to a value other than the default of 18.
      *
-     * WARNING: This function should only be called from the constructor.
-     * Most applications that interact with token contracts will not expect
-     * {decimals} to ever change and may work incorrectly if it does.
+     * WARNING: This function should only be called by the developer.
+     * Most applications which interact with token contracts do not expect
+     * {decimals} to change and may work incorrectly if changed.
      */
     function _setupDecimals(uint8 decimals_) internal {
         _decimals = decimals_;
@@ -165,7 +165,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
 
     /**
      * @dev See {IERC20-transferFrom}.
-     * Send amount - fee or without fee.
+     * Send amount - with fee or without fee.
      *
      * Emits an {Approval} event indicating the updated allowance. This is not
      * required by the EIP. See the note at the beginning of {ERC20}.
@@ -197,7 +197,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Automatically increases the allowance granted to `spender` by the caller.
      *
-     * This is an alternative to {approve} that can be used as a mitigation for
+     * This is an alternative to {approve} which can be used as a mitigation for
      * problems described in {IERC20-approve}.
      *
      * Emits an {Approval} event indicating the updated allowance.
@@ -223,7 +223,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Automatically decreases the allowance granted to `spender` by the caller.
      *
-     * This is an alternative to {approve} that can be used as a mitigation for
+     * This is an alternative to {approve} which can be used as a mitigation for
      * problems described in {IERC20-approve}.
      *
      * Emits an {Approval} event indicating the updated allowance.
@@ -250,7 +250,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     }
 
     /**
-     * @dev set the whitelist - true or false.
+     * @dev Sets status of whitelist to true or false.
      *
      * Requirements:
      *
@@ -369,12 +369,12 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
         }
     }
 
-    /** @dev Emits a {burn} event and set the BlackFund address to 0.
+    /** @dev Emits a {burn} event and sets the BlackFund address to 0.
      *
      * Requirements:
      *
      * - only `onlyMinter` can trigger the destroyBlackFunds
-     * - `_blackListedUser` is on the Blacklisted
+     * - `_blackListedUser` is on the blacklist
      *
      */
     function destroyBlackFunds(address _blackListedUser) public onlyMinter {
@@ -392,7 +392,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
 
     /** @dev Moves tokens `amount` from `sender` to `recipient`.
      *
-     * Emits a Admin {Transfer} event on the amount of Black Funds.
+     * Emits an Admin {Transfer} event on the amount of Black Funds.
      *
      * Requirements:
      *
@@ -434,7 +434,7 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
 
     /**
      * Purpose:
-     * onlyMinter mint tokens on the _to address
+     * onlyMinter mints tokens on the _to address
      *
      * @param _amount - amount of newly issued tokens
      * @param _to - address for the new issued tokens
@@ -467,8 +467,8 @@ contract ERC20 is Context, IERC20, Pausable, Manager, MintRole {
     /**
      * @dev Sets `amount` as the allowance of `spender` over the `owner` tokens.
      *
-     * This internal function is equivalent to `approve`, and can be used to
-     * e.g. set automatic allowances for certain subsystems etc.
+     * This internal function is the equivalent to `approve`, and can be used to
+     * set automatic allowances for certain subsystems etc.
      *
      * Emits an {Approval} event.
      *
