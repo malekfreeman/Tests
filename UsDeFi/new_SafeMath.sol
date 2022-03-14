@@ -33,7 +33,7 @@ library SafeMath {
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting on
-     * overflow (when the result is negative).
+     * overflow (if the result is negative).
      *
      * Counterpart to Solidity's `-` operator.
      *
@@ -47,7 +47,7 @@ library SafeMath {
 
     /**
      * @dev Returns the subtraction of two unsigned integers, reverting with custom message on
-     * overflow (when the result is negative).
+     * overflow (if the result is negative).
      *
      * Counterpart to Solidity's `-` operator.
      *
@@ -131,7 +131,7 @@ library SafeMath {
     }
 
     /**
-     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),
+     * @dev Returns the remainder of dividing two unsigned integers (unsigned integer module).
      * Reverts when dividing by zero.
      *
      * Counterpart to Solidity's `%` operator. This function uses a `revert`
