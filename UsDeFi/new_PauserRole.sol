@@ -46,7 +46,7 @@ contract PauserRole is Ownable {
     }
 
     /**
-     * @dev add address to the Pauser role.
+     * @dev Adds address to the Pauser role.
      *
      * Requirements:
      *
@@ -57,7 +57,7 @@ contract PauserRole is Ownable {
     }
 
     /**
-     * @dev remove address from the Pauser role.
+     * @dev Removes address from the Pauser role.
      *
      * Requirements:
      *
@@ -68,7 +68,7 @@ contract PauserRole is Ownable {
     }
 
     /**
-     * @dev add address to the Pauser role (internal).
+     * @dev Adds address to the Pauser role (internally).
      *
      * Requirements:
      *
@@ -80,7 +80,7 @@ contract PauserRole is Ownable {
     }
 
     /**
-     * @dev remove address from the Pauser role (internal).
+     * @dev Removes address from the Pauser role (internally).
      *
      * Requirements:
      *
