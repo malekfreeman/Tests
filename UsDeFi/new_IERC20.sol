@@ -40,7 +40,7 @@ interface IERC20 {
      * allowed to spend on behalf of `owner` through {transferFrom}. This is
      * zero by default.
      *
-     * This value changes when {approve} or {transferFrom} are called.
+     * This value changes when {approve} or {transferFrom} is called.
      */
     function allowance(address owner, address spender)
         external
@@ -52,10 +52,10 @@ interface IERC20 {
      *
      * Returns a boolean value indicating whether the operation succeeded.
      *
-     * IMPORTANT: Beware that changing an allowance with this method brings the risk
-     * that someone may use both: the old and the new allowance by unfortunate
-     * transaction ordering. One possible solution to mitigate this race
-     * condition is to first reduce the spender's allowance to 0 and set the
+     * IMPORTANT: Be aware that changing an allowance with this method brings the risk
+     * of someone using both: the old and the new allowance by unfortunate
+     * transaction ordering. A possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and then set the
      * desired value afterwards:
      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
      *
